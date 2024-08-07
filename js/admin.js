@@ -111,8 +111,19 @@ function cargarProductosEnLocalStorage (){
 }
 }
 let altaProductoValido = true;
-const myModal = new bootstrap.Modal(document.getElementById("modalAdd"));
-const myModalUpdate = new bootstrap.Modal(document.getElementById("modalUpdate"));
+let myModal, myModalUpdate;
+function inicializarModal () {
+    const elementoModal = document.querySelector('#modalAdd');
+    const elementoModalActualizar = document.querySelector('#modalUpdate');
+    if (elementoModal) {
+        myModal = new bootstrap.Modal(elementoModal);
+    }
+    if (elementoModalActualizar) {
+        myModalUpdate = new bootstrap.Modal(elementoModalActualizar);
+    }
+}
+inicializarModal()
+
 let idProducto = null;
 let arrayProductos = JSON.parse(localStorage.getItem("productos"));
 
@@ -122,15 +133,9 @@ let desde = 0
 // let paginas = arrayProductos.length / limite
 let paginas = Math.ceil(arrayProductos.length / limite);
 let paginaActiva = 1
-
 let arregloPaginas = arrayProductos.slice(desde,limite)
-//crear tabla de productos 
 
-let categorias = ["Playas", "Bosques y Montañas", "Grandes Ciudades"];
-
-let duracionDelViaje = ["7 noches", "10 noches"]
-
-
+// cargar tabla con productos predefinidos 
 const cargarProductos = ()=>{
     let cuerpoTabla = document.querySelector("#cuerpo-tabla");
     cuerpoTabla.innerHTML = "";
@@ -168,7 +173,7 @@ const cargarItemPaginacion = ()=>{
 }
 
 const modificarArregloProducto = ()=>{
-    
+    // arregloPaginas = arrayProductos.slice(desde,limite * paginaActiva)
     arregloPaginas = arrayProductos.slice(desde, desde + limite);
     cargarProductos()
 }
@@ -199,14 +204,13 @@ const paginaPrevia = () => {
 }
 
 const actualizarPaginacion = () => {
+    // Actualiza la paginación y el número de páginas disponibles
     paginas = Math.ceil(arrayProductos.length / limite);
-    cargarItemPaginacion(); 
+    cargarItemPaginacion(); // Recalcula los botones de paginación
 };
 
 
 cargarProductos()
-
-//agregar productos 
 let nombre = document.querySelector("#nombre")
 let listaCategorias = document.getElementById("categoria")
 let descripcion = document.querySelector("#descripcion")
@@ -219,21 +223,49 @@ let oferta = document.querySelector("#oferta")
 let precio = document.querySelector("#precio")
 let stock = document.querySelector("#stock")
 
-categorias.forEach((item) => {
-    let option = document.createElement("option");
-    option.value = item;
-    option.innerText = item;
-    listaCategorias.append(option);
-});
 
+function cargarOpciones() {
+    const categorias = ["Playas", "Bosques y Montañas", "Grandes Ciudades"];
+    const duraciones = ["7 noches", "10 noches"];
 
-duracionDelViaje.forEach((item) => {
-    let option = document.createElement("option");
-    option.value = item;
-    option.innerText = item;
-    listaDuracionDelViaje.append(option);
-});
-console.log(listaCategorias,listaDuracionDelViaje);
+    const selectCategoriaEditar = document.querySelector('#modalUpdate #categoria');
+    const selectDuracionEditar = document.querySelector('#modalUpdate #duracion');
+
+    listaCategorias.innerHTML = '';
+    listaDuracionDelViaje.innerHTML = '';
+    selectCategoriaEditar.innerHTML = '';
+    selectDuracionEditar.innerHTML = '';
+
+    
+    categorias.forEach(categoria => {
+        const option = document.createElement('option');
+        option.text = categoria;
+        listaCategorias.add(option);
+    });
+
+    duraciones.forEach(duracion => {
+        const option = document.createElement('option');
+        option.text = duracion;
+        listaDuracionDelViaje.add(option);
+    });
+
+   
+    categorias.forEach(categoria => {
+        const option = document.createElement('option');
+        option.text = categoria;
+        selectCategoriaEditar.add(option);
+    });
+
+    duraciones.forEach(duracion => {
+        const option = document.createElement('option');
+        option.text = duracion;
+        selectDuracionEditar.add(option);
+    });
+}
+
+cargarOpciones();
+
+//agregar producto
 
 const agregarProducto = (event)=>{
     event.preventDefault()
@@ -283,59 +315,45 @@ if (document.querySelector("#formulario-producto")) {
     document
       .querySelector("#formulario-producto")
       .addEventListener("submit", agregarProducto);
-  }
+}
 
-//modificar productos
-
-const cargarFormulario = (id) => {
-    
+//cargar formulario con datos
+const cargarFormulario = (id)=>{
     idProducto = arrayProductos.findIndex((item) => item.id === id);
     console.log(arrayProductos[idProducto]);
     let formulario = document.querySelector("#formulario-actualizado");
     console.log(formulario);
     Array.from(formulario.elements).forEach((campo) => {
-        
         if (campo.type === "checkbox") {
           campo.checked = arrayProductos[idProducto][campo.id];
         } else {
           campo.value = arrayProductos[idProducto][campo.id];
-
         }
     });
-};
+    
+}
 
-//actualizar los productos
+//actualizar paquete turistico
 const actualizarPaquete = (event) =>{
     event.preventDefault()
     let formulario = document.querySelector("#formulario-actualizado");
     Array.from(formulario.elements).forEach((campo) => {
         //vacuna
         if (campo.type === "checkbox") {
-          campo.checked = arrayProductos[idProducto][campo.id];
+           arrayProductos[idProducto][campo.id] = campo.checked;
         } else {
-          campo.value = arrayProductos[idProducto][campo.id];
+           arrayProductos[idProducto][campo.id] = campo.value;
 
         }
     });
-    // if (idProducto !== -1) {
-    //     let formulario = document.querySelector("#formulario-actualizado");
-    //     Array.from(formulario.elements).forEach((campo) => {
-    //         // Verificación para asegurar que el campo tiene un ID y el producto tiene la propiedad correspondiente
-    //         if (campo.id && arrayProductos[idProducto][campo.id] !== undefined) {
-    //             if (campo.type === "checkbox") {
-    //                 arrayProductos[idProducto][campo.id] = campo.checked;
-    //               } else {
-    //                 arrayProductos[idProducto][campo.id] = campo.value;
-    //               }
-    //         }
-    //     });
-    // } 
     localStorage.setItem('productos', JSON.stringify(arrayProductos));
     cargarProductos()
     myModalUpdate.hide()
     formulario.reset();
 }
-//borrar productos 
+
+//eliminar paquete turistico
+
 const borrarRegistro = (id) => {
     let index = arrayProductos.findIndex((item) => item.id === id);
   
