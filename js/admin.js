@@ -212,9 +212,7 @@ const actualizarPaginacion = () => {
 
 cargarProductos()
 let nombre = document.querySelector("#nombre")
-let listaCategorias = document.getElementById("categoria")
 let descripcion = document.querySelector("#descripcion")
-let listaDuracionDelViaje = document.getElementById("duracion")
 let fechaDeSalida = document.querySelector("#fecha_de_salida")
 let fechaDeRegreso = document.querySelector("#fecha_de_regreso")
 let alojamiento = document.querySelector("#alojamiento")
@@ -223,13 +221,16 @@ let oferta = document.querySelector("#oferta")
 let precio = document.querySelector("#precio")
 let stock = document.querySelector("#stock")
 
+//funcion cargar opciones
 
 function cargarOpciones() {
     const categorias = ["Playas", "Bosques y Montañas", "Grandes Ciudades"];
     const duraciones = ["7 noches", "10 noches"];
 
-    const selectCategoriaEditar = document.querySelector('#modalUpdate #categoria');
-    const selectDuracionEditar = document.querySelector('#modalUpdate #duracion');
+    const listaCategorias = document.getElementById("categoria")
+    const listaDuracionDelViaje = document.getElementById("duracion")
+    const selectCategoriaEditar = document.querySelector('#edit-categoria');
+    const selectDuracionEditar = document.querySelector('#edit-duracion');
 
     listaCategorias.innerHTML = '';
     listaDuracionDelViaje.innerHTML = '';
@@ -239,28 +240,20 @@ function cargarOpciones() {
     
     categorias.forEach(categoria => {
         const option = document.createElement('option');
-        option.text = categoria;
+        option.innerText = categoria;
         listaCategorias.add(option);
+        console.log(listaCategorias.value);
+        
+        selectCategoriaEditar.add(option)
     });
 
     duraciones.forEach(duracion => {
         const option = document.createElement('option');
-        option.text = duracion;
+        option.innerText = duracion;
         listaDuracionDelViaje.add(option);
-    });
-
-   
-    categorias.forEach(categoria => {
-        const option = document.createElement('option');
-        option.text = categoria;
-        selectCategoriaEditar.add(option);
-    });
-
-    duraciones.forEach(duracion => {
-        const option = document.createElement('option');
-        option.text = duracion;
         selectDuracionEditar.add(option);
     });
+
 }
 
 cargarOpciones();
@@ -311,6 +304,7 @@ const agregarProducto = (event)=>{
     alert("Por favor, complete todos los campos obligatorios que están con *.");
   }
 }
+
 if (document.querySelector("#formulario-producto")) {
     document
       .querySelector("#formulario-producto")
@@ -324,6 +318,8 @@ const cargarFormulario = (id)=>{
     let formulario = document.querySelector("#formulario-actualizado");
     console.log(formulario);
     Array.from(formulario.elements).forEach((campo) => {
+        console.log(campo.id);
+        
         if (campo.type === "checkbox") {
           campo.checked = arrayProductos[idProducto][campo.id];
         } else {

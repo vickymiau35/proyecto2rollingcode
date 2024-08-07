@@ -1,0 +1,43 @@
+.custom-scroll {
+    white-space: nowrap;
+}
+.card {
+    -webkit-box-shadow: 8px 6px 15px -1px #9E9E9E;
+    box-shadow: 8px 6px 15px -1px #9E9E9E;
+    height: 100%; /* Asegura que la tarjeta ocupe todo el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-img-container {
+    position: relative; /* Hace que el contenedor de la imagen sea el contenedor de referencia para el posicionamiento absoluto */
+}
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-text {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.badge-container {
+    position: absolute; /* Posiciona la etiqueta absolutamente dentro del contenedor relativo */
+    bottom: 0; /* Alinea la etiqueta en la parte inferior */
+    right: 10%; /* Alinea la etiqueta a la derecha */
+    background-color: rgb(255, 255, 255); /* Fondo semitransparente para mejor visibilidad */
+    color: rgb(8, 116, 167); /* Color del texto */
+    padding: 5px 10px;
+    border-top-left-radius: 20px; /* Bordes redondeados opcionales */
+    border-top-right-radius: 20px;
+    font-size: 1em; /* Tamaño del texto */
+}
+.badge-container i {
+    margin-right: 5px; /* Espacio entre el ícono y el texto */
+}
