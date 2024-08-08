@@ -1,89 +1,55 @@
-/* 
-let nombre = (document.getElementById('nombre'))
-let categoria = (document.getElementById('categoria'))
-let precio = (document.getElementById('precio'))
-let descripcion = (document.getElementById('descripcion'))
-let opiniones = (document.getElementById('opiniones'))
-const carouselInner = document.querySelector('.carousel-inner')
+const contenedorComentarios = document.getElementById('contenedorComentarios');
+function crearComentarioEstructura(nombre, comentario) {
+    // Crear la estructura del comentario
+    const comentarioDiv = document.createElement('div');
+    comentarioDiv.classList.add('media', 'mt-3');
 
-function updateProduct(viaje){
-nombre.innerText = viaje.name;
-categoria.innerText = viaje.category;
-precio.innerText = viaje.price;
-descripcion.innerText = viaje.description;
+    const mediaBodyDiv = document.createElement('div');
+    mediaBodyDiv.classList.add('media-body');
 
-//Carrusel
-carouselInner.innerHTML = '';
-const carouselItems = viaje.images.map((image,index)=>{
-    const div = document.createElement('div');
-    div.classList.add('carousel-item')
-    if(index===0){
-        div.classList.add('active')
-    }
-    div.innerHTML = `<img src='${image}' class='d-block w-100' alt='${viaje.name}'>`
+    const nombreH5 = document.createElement('h5');
+    nombreH5.classList.add('mt-0');
+    nombreH5.textContent = nombre;
 
-});
-carouselItems.map((item)=>{
-    carouselInner.appendChild(item)
-});
+    const comentarioP = document.createElement('p');
+    comentarioP.textContent = comentario;
+
+    mediaBodyDiv.append(nombreH5, comentarioP);
+    comentarioDiv.append(mediaBodyDiv);
+
+    return comentarioDiv;
 }
-document.addEventListener('DOMContentLoaded', ()=> {
-    const product = JSON.parse(localStorage.getItem('selectedProduct'));
-    if (product) {
-        updateProduct(product);
-    }
-});
- */
-let arrayProductos = JSON.parse(localStorage.getItem("productos"))
-let nombre = (document.getElementById('nombre'))
-let categoria = (document.getElementById('categoria'))
-let precio = (document.getElementById('precio'))
-let descripcion = (document.getElementById('descripcion'))
-const carouselInner = document.querySelector('.carousel-inner')
-const opiniones = (document.getElementById('opiniones'))
-const OPINION_NOMBRE = document.getElementById('exampleFormControlTextarea1')
 
-    function updateProduct() {
-        nombre.innerText = arrayProductos.nombre;
-        categoria.innerText = arrayProductos.categoria;
-        precio.innerText = arrayProductos.precio;
-        descripcion.innerText = arrayProductos.descripcion;
-        let lista = `<ul>
-          <li>${arrayProductos.fecha_de_salida}</li>
-          <li>${arrayProductos.fecha_de_regreso}</li>
-          <li>${arrayProductos.alojamiento}</li>
-            <ul/>`
-        const CONT_LIST = document.getElementById('contlist')
-        CONT_LIST.innerHTML = lista
+function agregarComentario() {
+    const nombre = document.getElementById('nombreUsuario').value;
+    const comentario = document.getElementById('comentarioUsuario').value;
 
-        //Carrusel
-        carouselInner.innerHTML = '';
-        const carouselItems = viaje.images.map((image, index) => {
-            const carouselItems = arrayProductos.imagen.map((image, index) => {
-                const div = document.createElement('div');
-                div.classList.add('carousel-item')
-                if (index === 0) {
-                    div.classList.add('active')
-                }
-                div.innerHTML = `<img src='${image}' class='d-block w-100' alt='${viaje.name}'>`
-                div.innerHTML = `<img src='${image}' class='d-block w-100' alt='${arrayProductos.nombre}'>`
+    // Recuperar los comentarios existentes del localStorage
+    const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
 
-            }});
-    }
+    // Crear un nuevo comentario
+    const nuevoComentario = {
+        nombre: nombre,
+        comentario: comentario
+    };
+    comentarios.push(nuevoComentario);
 
-    carouselItems.map((item) => {
-        carouselInner.appendChild(item)
+    localStorage.setItem('comentarios', JSON.stringify(comentarios));
+
+    //Creamos y agregamos al dom la estructura del comentario
+    const comentarioDiv = crearComentarioEstructura(nombre, comentario);
+    contenedorComentarios.appendChild(comentarioDiv);
+}
+
+// Función para cargar los comentarios desde el localStorage cuando cargue el DOM
+function cargarComentarios() {
+    const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+
+    comentarios.forEach(comentario => {
+        const comentarioDiv = crearComentarioEstructura(comentario.nombre, comentario.comentario);
+        contenedorComentarios.appendChild(comentarioDiv);  
     });
+}
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    let url = new URL(location.href);
-    let idviaje = url.searchParams.get('id');
-
-    let viaje = arrayProductos.find((item) => item.id === idviaje);
-
-    if (viaje) {
-        updateProduct(viaje);
-    }
-});
+// Cargar los comentarios al cargar la página
+document.addEventListener('DOMContentLoaded', cargarComentarios);
