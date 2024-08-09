@@ -42,7 +42,7 @@ function llenarSeccionesTarjetas() {
 
 
 function irViaje(id){
-    location.href=./pages/detalles.html?id=${id}
+    location.href=`./pages/detalles.html?id=${id}`
 }
 
 
