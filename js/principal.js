@@ -1,16 +1,21 @@
 function crearTarjeta(producto) {
     return `
-        <div class="col">
-             <div class="card">
-                  <img src=${producto.imagen} class="card-img-top" alt=${producto.nombre}>
-                  <div class="card-body">
-                  <h5 class="card-title">${producto.nombre}</h5>
-                  <p class="card-text">${producto.duracion}</p>
-                  <p class="card-text">${producto.alojamiento}</p>
-                  <p class="card-text">${producto.precio}</p>
-                  <a href="#" onclick="irViaje(${producto.id})">Ver más...</a>
-                  </div>
-               </div>
+        <div>
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                    <div class="badge-container">
+                        <i class="bi bi-luggage-fill"></i> 
+                        <span>Paquete</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                 <h4 class="card-title">${producto.nombre}</h4>
+                 <p class="card-text fw-medium">${producto.duracion}</p>
+                 <p class="card-text">Alojamiento : ${producto.alojamiento}</p>
+                 <p class="card-text">${producto.precio}</p>
+                 <a href="#" onclick="irViaje(${producto.id})">Ver más...</a>
+                </div>
             </div>
         </div>
     `;
@@ -46,7 +51,7 @@ function irViaje(id){
 }
 
 
-//para que al modificar en administracion una oferta o categoria cambie automaticamente la pagina principal y el contenido sin recargar la pagina
+
 document.addEventListener('DOMContentLoaded', llenarSeccionesTarjetas);
 window.addEventListener('storage', (event) => {
     if (event.key === 'productos') {
