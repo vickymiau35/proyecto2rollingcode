@@ -30,13 +30,13 @@
   <body>
     <header>
       <nav class="navbar sticky-top navbar-expand-lg navbar-danger bg-danger">   
-        <a class="navbar-brand" href="/index.html">
+        <div id="contenedorLogo"><a class="navbar-brand" href="/index.html">
               <img
                 src="/assets/img/logo.jpeg"
                 alt=""
                 class="w-25"
                 id="logoNavbar"
-            /></a>
+            /></a></div>
             <button
               class="navbar-toggler"
               type="button"
@@ -45,9 +45,8 @@
               aria-controls="navbarTogglerDemo02"
               aria-expanded="false"
               aria-label="Toggle navigation"
-              
             >
-            <i class="fa-solid fa-bars fa-xl" style="color: #74C0FC;"></i>
+            <i class="fa-solid fa-bars fa-xl" style="color: #74C0FC;" uotline="none"></i>
             </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -85,6 +84,7 @@
                 > Login</a>
               </li>
             </ul>
+            <div id="contenedorFormulario">
             <form class="d-flex">
               <input
                 class="form-control me-2"
@@ -95,7 +95,7 @@
               <button class="btn btn-info" type="submit">Search</button>
             </form>
           </div>
-        </div>
+          </div>
       </nav>
     </header>
     <main>
