@@ -1,0 +1,9 @@
+#logoNavbar{
+    width: 100px !important;
+    height:100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.container-fluid{
+    height: 1200px;
+}
