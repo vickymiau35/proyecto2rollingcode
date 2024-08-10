@@ -5,16 +5,15 @@ function Footer() {
 
     section.innerHTML = `
         <article class="row" id="CuerpoFooter">
-        <aside class="col-xl-4 col-sm-12 col-md-3">
+        <aside class="col-xl-4 col-sm-12 col-md-4">
             <br>
               <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="/pages/registro.html">Registro</a></li>
-                <li><a href="/pages/reservas.html">Reservas</a></li>
-                <li><a href="/pages/nosotros.html">Acerca de Nosotros</a></li>
+                <li><a href="">Viajes</a></li>
+                <li><a href="/pages/Nosotros.html">Acerca de Nosotros</a></li>
               </ul>
             </aside>
-            <aside class="col-xl-4 col-sm-12 col-md-3">
+            <aside class="col-xl-4 col-sm-12 col-md-4">
             <br>
               <ul>
                 <li><a href="./pages/404.html">Terminos y condiciones</a></li>
@@ -25,7 +24,7 @@ function Footer() {
                 <li><a href="./pages/404.html">Descargar App Movil</a></li>
               </ul>
             </aside>
-            <aside class="col-xl-4 col-sm-12 col-md-3">
+            <aside class="col-xl-4 col-sm-12 col-md-4">
         <div id="contenedorLogo"><img id="logo"src="/assets/img/logo.jpeg" alt=""></div>
         </aside>
           </article>
