@@ -13,12 +13,14 @@
     justify-content: center; 
     align-items: center; 
     height: 100vh; 
-    padding: 150px;
+    padding:10px;
+    margin: 100px;
+  
   }
   .btn_error{
     position: absolute;
-    top: 30px; /* Ajusta el margen superior según sea necesario */
-    left: 30px; /* Ajusta el margen izquierdo según sea necesario */
+    top: 30px; 
+    left: 30px; 
     padding: 20px 30px;
     background-color: #007bff;
     color: #fff;
