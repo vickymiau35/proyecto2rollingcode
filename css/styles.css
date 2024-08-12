@@ -1,3 +1,28 @@
+/*navbar*/
+header{
+    position: fixed;
+    width: 100%;
+}
+#contenedorLogo{
+    margin-left: 15px;
+}
+#logoNavbar{
+    width: 100px !important;
+    height:100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#contenedorFormulario{
+    margin-right: 10px;
+
+}
+#navbarTogglerDemo02{
+margin-left: 25px;
+}
+.container-fluid{
+    height: 1200px;
+}
+
 /*cards*/
 .card {
     -webkit-box-shadow: 8px 6px 15px -1px #9E9E9E;
