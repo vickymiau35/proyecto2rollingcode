@@ -19,10 +19,21 @@ header{
 #navbarTogglerDemo02{
 margin-left: 25px;
 }
-.container-fluid{
-    height: 1200px;
-}
+/*modal inicio sesion*/
 
+#contenedorFormulario{
+    margin-right: 10px;
+
+}
+#navbarTogglerDemo02{
+margin-left: 25px;
+}
+.container-fluid{
+    height: 500px;
+}
+main{
+    margin-top: 270px;
+}
 /*cards*/
 .card {
     -webkit-box-shadow: 8px 6px 15px -1px #9E9E9E;
