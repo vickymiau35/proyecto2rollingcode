@@ -25,7 +25,7 @@ function Footer() {
               </ul>
             </aside>
             <aside class="col-xl-4 col-sm-12 col-md-4">
-        <div id="contenedorLogo"><img id="logo"src="/assets/img/logo.jpeg" alt=""></div>
+        <div id="contenedorLogo"><img id="logo"src="../assets/img/logo.jpeg" alt=""></div>
         </aside>
           </article>
           <article class="row" class="sociales">
