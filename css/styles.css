@@ -1,17 +1,57 @@
+.carousel-inner {
+  position:relative;
+  width: 100%;
+  height: 80vh; 
+}
 
-.carouselExampleControls {
-    height: 80px;
-  }
-  .carousel-item {
-    height: 80vh;
-  }
+.carousel-item {
+  position: relative;
+  height: 100%;
+}
+
+.imgslider {
+  filter: contrast(90%);
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+}
+
+.text_style{
   
-  .carousel-item img {
-    object-fit: cover;
-    height: 100vh;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000;
   
+}
+
+.text_style {
+  animation: slideIn 3s ease-in-out infinite;
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+
+/* responsive*/
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.carousel {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+      max-height: 300px; /
   }
-  
+}
 
 /* NOSOTROS*/
 
@@ -78,10 +118,10 @@ h1{
     width: 100%;
     height: 100%;
     background: url(./logo.jpeg) no-repeat center center;
-    background-size:cover; /* Ajusta el tamaño de la imagen si es necesario */
-  opacity: 0.2; /* Ajusta la opacidad para que sea visible pero no moleste */
-   pointer-events: none; /* Evita que la imagen interfiera con los clics */
-   z-index: 0; /* Asegúrate de que la marca de agua esté detrás del contenido */
+    background-size:cover; 
+  opacity: 0.2; 
+   pointer-events: none; 
+   z-index: 0; 
   }
   .nos{
     text-align: center;
@@ -141,8 +181,8 @@ h1{
   }
   .btn_error{
     position: absolute;
-    top: 30px; /* Ajusta el margen superior según sea necesario */
-    left: 30px; /* Ajusta el margen izquierdo según sea necesario */
+    top: 30px; 
+    left: 30px; 
     padding: 20px 30px;
     background-color: #007bff;
     color: #fff;
@@ -161,24 +201,24 @@ h1{
 
 
 .custom-scroll {
-  display: flex; /* Alinea las tarjetas en fila */
-  overflow-x: auto; /* Habilita el desplazamiento horizontal */
-  gap: 1rem; /* Espacio entre tarjetas */
-  padding: 1rem; /* Espacio alrededor del contenedor */
-  scroll-behavior: smooth; /* Suaviza el desplazamiento */
+  display: flex; 
+  overflow-x: auto; 
+  gap: 1rem; 
+  padding: 1rem; 
+  scroll-behavior: smooth; 
 }
 
 .card {
   -webkit-box-shadow: 8px 6px 15px -1px #9e9e9e;
   box-shadow: 8px 6px 15px -1px #9e9e9e;
-  height: 100%; /* Asegura que la tarjeta ocupe todo el espacio disponible */
+  height: 100%; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .card-img-container {
-  position: relative; /* Hace que el contenedor de la imagen sea el contenedor de referencia para el posicionamiento absoluto */
+  position: relative; 
 }
 
 .card-img-top {
@@ -197,17 +237,144 @@ h1{
   overflow-wrap: break-word;
 }
 .badge-container {
-  position: absolute; /* Posiciona la etiqueta absolutamente dentro del contenedor relativo */
-  bottom: 0; /* Alinea la etiqueta en la parte inferior */
-  right: 10%; /* Alinea la etiqueta a la derecha */
-  background-color: rgb(255, 255, 255); /* Fondo semitransparente para mejor visibilidad */
-  color: rgb(8, 116, 167); /* Color del texto */
+  position: absolute; 
+  bottom: 0; 
+  right: 10%; 
+  background-color: rgb(255, 255, 255); 
+  color: rgb(8, 116, 167);
   padding: 5px 10px;
-  border-top-left-radius: 20px; /* Bordes redondeados opcionales */
+  border-top-left-radius: 20px; 
   border-top-right-radius: 20px;
-  font-size: 1em; /* Tamaño del texto */
+  font-size: 1em; 
 }
 
 .badge-container i {
-  margin-right: 5px; /* Espacio entre el ícono y el texto */
+  margin-right: 5px; 
+}
+footer{
+
+  li{ 
+      list-style: none; 
+   }
+  background-size: cover;    
+  background-color:#ac0505
+}
+#CuerpoFooter{
+   text-decoration:wavy;
+   background-color: rgb(246, 248, 250);
+   display: flex;
+   flex-wrap: wrap;
+   justify-content:space-between;
+   text-align: center;
+   align-items: center;   
+   font-style:normal;
+
+}
+#contenedorLogo{
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   background-size:cover;
+   margin-top: 10%;
+}   
+#logo{
+   width: 50%;
+   height: auto;
+}
+a{
+   color: #00aced;
+}
+#copyrightFooter{
+   color: rgb(210, 217, 224);;
+}
+.wrapper{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   margin-top: 50px;
+}
+.wrapper ul{
+   list-style: none;
+}
+.wrapper ul li {
+   width: 60px;
+   height: 60px;
+   line-height: 5px;
+   margin: 0 10px;
+   text-align: center;
+   cursor: pointer;
+   border-radius: 50%;
+   border: 5px solid #dbe2dc;
+   float: left;
+   transition: all 0.5s ease;
+}
+.wrapper ul li .fa{
+   color: #dbe2dc;
+   margin-top: 20px;
+   transition: all 0.5s ease;
+}
+.wrapper ul li:hover.facebook {
+border: 5px solid#2768f5;
+box-shadow: 0 0 15px #2768f5;
+transition: all 0.5s ease;
+}
+.wrapper ul li .fa-facebook {
+color: #2768f5;
+text-shadow: 0 0 15px #2768f5;
+transition: all 0.5s ease;
+}
+.wrapper ul li:hover.twitter {
+   border: 5px solid#00aced;
+   box-shadow: 0 0 15px #00aced;
+   transition: all 0.5s ease;
+   }
+.wrapper ul li .fa-twitter {
+   color: #00aced;
+   text-shadow: 0 0 15px #00aced;
+   transition: all 0.5s ease;
+}
+.wrapper ul li:hover.instagram {
+   border: 5px solid #d81c9d;
+   box-shadow: 0 0 15px #d81c9d;
+   transition: all 0.5s ease;
+}
+.wrapper ul li .fa-instagram {
+   color: #d81c9d;
+   text-shadow: 0 0 15px #d81c9d;
+   transition: all 0.5s ease;
+}
+.wrapper ul li:hover.linkedin {
+   border: 5px solid #f60505;
+   box-shadow: 0 0 15px #f60505;
+   transition: all 0.5s ease;
+}
+.wrapper ul li .fa-linkedin {
+   color: #f60505;
+   text-shadow: 0 0 15px #f60505;
+   transition: all 0.5s ease;
+}
+.wrapper ul li:hover.whatsapp {
+   border: 5px solid #4dc247;
+   box-shadow: 0 0 15px #4dc247;
+   transition: all 0.5s ease;
+}
+.wrapper ul li .fa-whatsapp {
+   color: #4dc247;
+   text-shadow: 0 0 15px #4dc247;
+   transition: all 0.5s ease;
+}
+/* imagen de la pagina de detalle */
+#productImage {
+  height: 50vw; 
+  max-height: 400px; 
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#productImageDisplay {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
