@@ -25,10 +25,10 @@ margin-left: 25px;
 
 /* LOGIN */
 #modal-edit-header {
-  background: linear-gradient(45deg, #87cae7, #9b0bc3, #E40404) !important;
+  background: linear-gradient(45deg, #87cae7,#589cdb,#E40404) !important;
 }
 #modal-edit-footer{
-  background: linear-gradient(45deg, #E40404, #9b0bc3, #87cae7) !important;
+  background: linear-gradient(45deg, #E40404,#f03c3c,#87cae7) !important;
 }
 #btn-sesion{
   /* border: 0.1px solid black !important; */
@@ -50,4 +50,12 @@ margin-left: 25px;
   font-weight:bolder;
   font-family: Arial, Helvetica, sans-serif;
   /* text-decoration: none; */
+}
+
+#administrador {
+  display: none;
+}
+
+#btnLogout {
+  display: none;
 }

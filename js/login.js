@@ -1,117 +1,85 @@
-const loginUsuarios=()=>{
-    let usuarios= [
-        {
-            id:"mrtravel",
-            correo:"mrtravel@gmail.com",
-            contraseña:"MrTravel2024"
-            ,rol:"admin"
-        },
-        {
-            id:"traveler",
-            correo:"traveler@gmail.com",
-            contraseña:"Traveler2024",
-            rol:"user"
-        }
-    ]
-localStorage.setItem('usuarios',JSON.stringify(usuarios));
-}
-const logOut = () => {
-    localStorage.removeItem('usuarito');
-    let boton = document.querySelector("#modo-boton");
-    boton.classList = "btn btn-danger btn-block";
-    boton.innerText = "Iniciar sesión";
-    boton.setAttribute("data-bs-toggle", "modal");
-    boton.setAttribute("data-bs-target", "#modalLogin");
-    actualizarEstadoPagina();
-};
-const loguearse = (event) => {
-    event?.preventDefault();
-    let usuarito = JSON.parse(localStorage.getItem('usuarito'));
-    let boton = document.querySelector("#modo-boton");
-    let modalLoginElement = document.querySelector("#modalLogin");
-    let modalLoginInstance = bootstrap.Modal.getInstance(modalLoginElement);
-    if (usuarito) {
-        // Si el usuario ya está logueado
-        boton.classList = "btn btn-success btn-block";
-        boton.innerText = "Cerrar sesión";
-        boton.removeAttribute("data-bs-toggle");
-        boton.removeAttribute("data-bs-target");
-        boton.addEventListener("click", logOut);
-    } else if(event) {
-        // Si el usuario no está logueado
-        let logueados = JSON.parse(localStorage.getItem('usuarios')) || [];
-        let correo = document.getElementById('correo').value;
-        let contraseña = document.getElementById('contraseña').value;
-        let validoDatos = logueados.find((logueado) => logueado.correo === correo && logueado.contraseña === contraseña);
-        if (validoDatos) {
-            usuarito = {
-                id: validoDatos.id,
-                correo: validoDatos.correo,
-                rol: validoDatos.rol
-            };
-            localStorage.setItem('usuarito', JSON.stringify(usuarito));
-            if (modalLoginInstance) {
-                modalLoginInstance.hide();
-              } else {
-                console.error('No se pudo obtener la instancia de modalLogin');
-              }
-            boton.classList = "btn btn-success btn-block";
-            boton.innerText = "Cerrar sesión";
-            boton.removeAttribute("data-bs-toggle");
-            boton.removeAttribute("data-bs-target");
-            boton.addEventListener("click", logOut);
-            actualizarEstadoPagina();
-        } else {
-            alert("Alguno de los datos es incorrecto");
-        }
-    }
-};
-document.getElementById("formulariologin").addEventListener("submit",loguearse);
-
-const actualizarEstadoPagina = () => {
-    let logueado = JSON.parse(localStorage.getItem('usuarito')) || null;
-    let adminItem = document.getElementById("admin");
-    if (adminItem) {
-        if (logueado && logueado.rol === "admin") {
-            adminItem.classList.remove("d-none"); // Mostrar el elemento
-        } else {
-            adminItem.classList.add("d-none"); // Ocultar el elemento
-            let alertar= `<div class= "alert alert-danger" role:"alert">No es posible acceder.
-            <a href="../sesion.html">Iniciar sesión nuevamente.</a></div>`
-            document.querySelector('main').innerHTML=alertar;
-        }
-    }
-};
-window.addEventListener('pageshow', (event) => {
-    actualizarEstadoPagina();
-});
-
-
-
-
-
-// const loginUsuarios=()=>{let usuarios= [ {id:"mrtravel",correo:"mrtravel@gmail.com",contraseña:"MrTravel2024",rol:"admin"}
-//                                          {id:"traveler",correo:"traveler@gmail.com",contraseña:"Traveler2024",rol:"user"}
-// ]}
-
-// localStorage.setItem('usuarios',JSON.stringify(usuarios));
-
-// let mail= document.getElementById('correo');
-// let pass= document.getElementById('contraseña');
-
-// const loguearse=(event)=>{event.preventDefault();
-    
-//     let logueados= JSON.parse(localStorage.getItem('usuarios')) || [];
-//     let validoDatos= logueados.find((logueado)=>
-//                                      logueado.correo===mail.value && 
-//                                      logueado.contraseña===pass.value);
-//         if (validoDatos){console.log(validoDatos)
-//            let usuarito= {id:validoDatos.id, correo:validoDatos.correo,rol:validoDatos.rol}
-//         localStorage.setItem('usuarito',JSON.stringify(usuarito))
-//         location.assign("./index.html");
-//         }else{alert("Alguno de los datos es incorrecto")}                              
-// };
-// const logOut=()=>{localStorage.removeItem("usuarito")};
-// logOut();
-
-// document.getElementById("formulariologin").addEventListener("submit",loguearse);
+// Inicializo los datos de usuarios en localStorage 
+const datosUsuarios = () => {
+   let users = [
+     {
+       id: "mrtravel",
+       email: "mrtravel@gmail.com",
+       password: "MrTravel2024",
+       rol: "admin",
+     },
+     {
+       id: "traveler",
+       email: "traveler@gmail.com",
+       password: "Traveler2024",
+       rol: "user",
+     },
+   ];
+ 
+   localStorage.setItem("users", JSON.stringify(users));
+ };
+ 
+ datosUsuarios();
+ 
+ const formularioLogin = document.getElementById("formulariologin");
+ const correoInput = document.getElementById("email");
+ const passwordInput = document.getElementById("password");
+ const administradorLink = document.getElementById("administrador");
+ const btnLogout = document.getElementById("btnLogout");
+ const btnLogin = document.getElementById("btnLogin");
+ 
+ const logIn = (event) => {
+   event.preventDefault();
+ 
+   let usuarios = JSON.parse(localStorage.getItem("users")) || [];
+ 
+   let usuarioValido = usuarios.find(
+     (usuario) =>
+       usuario.email === correoInput.value && usuario.password === passwordInput.value
+   );
+ 
+   if (usuarioValido) {
+     localStorage.setItem("user", JSON.stringify(usuarioValido));
+     mostrarContenidoSegunRol(usuarioValido.rol);
+     
+     const modal = bootstrap.Modal.getInstance(document.getElementById('modalLogin'));
+     modal.hide();
+   } else {
+     alert("Correo o contraseña incorrectos");
+   }
+ };
+ 
+ const mostrarContenidoSegunRol = (rol) => {
+   if (rol === "admin") {
+     administradorLink.style.display = 'block';
+     btnLogout.style.display = 'block'
+     btnLogin.style.display = 'none';
+     ;
+   } else if (rol === "user") {
+     administradorLink.style.display = 'none'; 
+     btnLogout.style.display = 'block';
+     btnLogin.style.display = 'none';  
+   } else {
+     administradorLink.style.display = 'none'; 
+     btnLogout.style.display = 'none'; 
+     btnLogin.style.display = 'block'; 
+   }
+ };
+ 
+ const logOut = () => {
+   localStorage.removeItem("user");
+   mostrarContenidoSegunRol(''); 
+ };
+ 
+ // evento envío de formulario de inicio sesión y evento clic en cerrar sesión
+ formularioLogin.addEventListener("submit", logIn); 
+ btnLogout.addEventListener("click", logOut);
+ 
+ // Mostrar contenido según el rol del usuario al cargar la página
+ window.onload = () => {
+   const usuario = JSON.parse(localStorage.getItem("user"));
+   if (usuario) {
+     mostrarContenidoSegunRol(usuario.rol);
+   } else {
+     mostrarContenidoSegunRol('');
+   }
+ };
