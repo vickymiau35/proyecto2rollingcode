@@ -44,7 +44,7 @@ function llenarSeccionesTarjetas() {
     });
 }
 function irViaje(id){
-    location.href="./pages/detalles.html?id=${id}"
+    location.href=`./pages/detalles.html?id=${id}`
 }
 //para que al modificar en administracion una oferta o categoria cambie automaticamente la pagina principal y el contenido sin recargar la pagina
 document.addEventListener('DOMContentLoaded', llenarSeccionesTarjetas);

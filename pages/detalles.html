@@ -14,92 +14,8 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar sticky-top navbar-expand-lg navbar-danger bg-danger">   
-        <div id="contenedorLogo"><a class="navbar-brand" href="/index.html">
-              <img
-                src="./assets/logo.jpeg"
-                alt=""
-                class="w-25"
-                id="logoNavbar"
-            /></a></div>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarTogglerDemo02"
-              aria-controls="navbarTogglerDemo02"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-            <i class="fa-solid fa-bars fa-xl" style="color: #74C0FC;" uotline="none"></i>
-            </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item"></li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/index.html" style="color: white;"
-                  ><i class="fa-solid fa-house" style="color: #74c0fc"></i
-                  > Inicio</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white;" 
-                  ><i
-                    class="fa-solid fa-earth-americas"
-                    style="color: #74c0fc"></i> Viajes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/pages/nosotros.html" style="color: white;"
-                  ><i class="fa-solid fa-link" style="color: #74c0fc"></i> Nosotros</a
-                >
-              </li>
-              <ul class="navbar-nav">
-                <li id="admin" class="nav-item dropdown d-none">
-                 <a
-                   class="nav-link dropdown-toggle"
-                   href="#"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false"
-                 >
-                   Administrar
-                 </a>
-                 <ul class="dropdown-menu">
-                   <li>
-                     <a class="dropdown-item" href="./pages/admin.html"
-                       >Listado de productos</a>
-                   </li>
-                 </ul>
-               </li>
-               </ul>
-              <li class="nav-item">
-                <button id="button-header-favorite">
-                  <a class="nav-link" href="./pages/favoritos.html" style="color: white;">
-                  <i class="fa-solid fa-heart"></i>
-                  <span class="counter-favorite">0</span></a>
-              </button>
-              </li>
-            </ul>
-            <div id="contenedorFormulario">
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-info" type="submit">Search</button>
-            </form>
-          </div>
-          </div>
-          <div class="mt-2 mt-md-0 ms-md-2 d-grid d-flex">
-            <button class="btn btn-danger" id="modo-boton" data-bs-toggle="modal" data-bs-target="#modalLogin">Iniciar sesión</button>
-          </div>
-      </nav>
-    </header>
-   
-
+    <header>      
+    </header>   
 <main>
   <div class="container mt-5">
     <div class="row">
@@ -117,7 +33,7 @@
 
           </div>
           <h4 id="precio" class="mt-2"></h4> 
-         
+          <hr class="card-separator">
             <button class="btn btn-success rounded mt-auto" id="contacto-asesor">
               Comunicarse con asesor
             </button>
@@ -152,7 +68,7 @@
             <div class="d-flex flex-column align-items-start" container>
     <input class="mb-3 mt-3 rounded" type="text" id="nombreUsuario" placeholder="Nombre" >
     <textarea class="col-md-6 mb-3 rounded w-75" id="comentarioUsuario" placeholder="Escribe tu comentario aquí"></textarea>
-    <button class="btn-danger rounded" onclick="agregarComentario()">Agregar Comentario</button>
+    <button id="btn-comentario" class="btn rounded" onclick="agregarComentario()">Agregar Comentario</button>
 </div>
 <div id="contenedorComentarios"> 
 </div>
@@ -163,8 +79,9 @@
 </footer>    
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="/js/detalles.js"></script>
 <script src="/js/admin.js"></script>
+<script src="/js/principal.js"></script>
+<script src="/js/detalles.js"></script>
 <script src="/js/footer.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 

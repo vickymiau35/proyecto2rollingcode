@@ -18,13 +18,25 @@ function crearComentarioEstructura(nombre, comentario) {
   mediaBodyDiv.append(nombreH5, comentarioP);
   comentarioDiv.append(mediaBodyDiv);
 
+  const SEPARADOR = document.createElement('hr')
+  SEPARADOR.classList.add('card-separator')
+  comentarioDiv.appendChild(SEPARADOR)
+
   return comentarioDiv;
 }
 
 function agregarComentario() {
-  const nombre = document.getElementById("nombreUsuario").value;
-  const comentario = document.getElementById("comentarioUsuario").value;
+  const nombre = document.getElementById("nombreUsuario").value.trim();
+  
+  const comentario = document.getElementById("comentarioUsuario").value.trim();
 
+  if(!nombre || !comentario){
+    
+      alert("Por favor, complete ambos campos antes de enviar el comentario.");
+      return; // Detener la ejecución si los campos están vacíos
+    
+  }
+  
   const comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
 
   // Crea un nuevo comentario
@@ -68,67 +80,54 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.error("Producto no encontrado");
   }
-});
+  const categoria = viaje.categoria;
+  console.log(categoria); 
+  
+const productoRelacionado = arrayProductos.filter(
+  (producto) => producto.categoria === categoria && producto.id !== idviaje
+);
+console.log(productoRelacionado)
 
-    const categoria = viaje.categoria;
-    console.log(categoria); 
+const contenedor = document.getElementById("div-relacionados");
+productoRelacionado.forEach((producto) => {
+  const card = document.createElement("div");
+  card.classList.add("card"); // Clase necesaria para Swiper
+
+  card.innerHTML = `
     
-  const productoRelacionado = arrayProductos.filter(
-    (producto) => producto.categoria === categoria && producto.id !== idviaje
-  );
- console.log(productoRelacionado)
-  
- const contenedor = document.getElementById("div-relacionados");
-  productoRelacionado.forEach((producto) => {
-    const card = document.createElement("div");
-    card.classList.add("card"); // Clase necesaria para Swiper
-
-    card.innerHTML = `
-      
-        <div class="card-img-container">
-          <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-          <div class="badge-container">
-            <i class="bi bi-luggage-fill"></i>
-            <span>Paquete</span>
-          </div>
+      <div class="card-img-container">
+        <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+        <div class="badge-container">
+          <i class="bi bi-luggage-fill"></i>
+          <span>Paquete</span>
         </div>
-        <div class="card-body">
-          <h4 class="card-title fs-5">${producto.nombre}</h4>
-          <p class="card-text fs-6 fw-medium">${producto.duracion}</p>
-          <p class="card-text fs-6 my-0">Alojamiento: ${producto.alojamiento}</p>
-          <hr class="card-separator">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="info-container">
-              <p class="card-text fs-5 mb-1 precio">${producto.precio}</p>
-              <a href="#" onclick="irViaje(${producto.id})" class="text-decoration-none fs-6">Ver más...</a>
-            </div>                       
-          </div>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title fs-5">${producto.nombre}</h4>
+        <p class="card-text fs-6 fw-medium">${producto.duracion}</p>
+        <p class="card-text fs-6 my-0">Alojamiento: ${producto.alojamiento}</p>
+        <hr class="card-separator">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="info-container">
+            <p class="card-text fs-5 mb-1 precio">${producto.precio}</p>
+            <a href="#" onclick="irViaje(${producto.id})" class="text-decoration-none fs-6">Ver más...</a>
+          </div>                       
         </div>
-      
-    `;
-    contenedor.append(card);
-  
-  function scrollCarousel(sectionId,direction) {
-    const container = document.getElementById(sectionId)
-    if (!container) return;  // Verifica si el contenedor existe
-    const cardWidth = container.querySelector('.card').offsetWidth;
-    const scrollAmount = cardWidth + 16
-  
-    if (direction === 1) {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    } else if (direction === -1) {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    }
-  }
+      </div>
+    
+  `;
+  contenedor.append(card);
 
 
-
-  if (viaje) {
-    updateProduct(viaje);
-  } else {
-    console.error("Producto no encontrado");
-  }
+if (viaje) {
+  updateProduct(viaje);
+} else {
+  console.error("Producto no encontrado");
+}
 });
+});
+
+    
 
 function updateProduct(viaje) {
   document.getElementById("nombre").innerText = viaje.nombre;
@@ -174,3 +173,4 @@ function scrollCarousel(containerId, direction) {
   function irViaje(id){
     location.href=`../pages/detalles.html?id=${id}`
 }
+  
