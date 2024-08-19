@@ -122,6 +122,7 @@ const actualizarPaginacion = () => {
 
 cargarProductos();
 
+
 let nombre = document.querySelector("#nombre");
 let descripcion = document.querySelector("#descripcion");
 let fechaDeSalida = document.querySelector("#fecha_de_salida");
@@ -132,16 +133,20 @@ let oferta = document.querySelector("#oferta");
 let precio = document.querySelector("#precio");
 let stock = document.querySelector("#stock");
 
+
 //funcion cargar opciones
 
 function cargarOpciones() {
+
     const selectCategoriaEditar = document.querySelector("#editCategoria");
     const selectDuracionEditar = document.querySelector("#editDuracion");
+
 
     listaCategorias.innerHTML = "";
     listaDuracionDelViaje.innerHTML = "";
     selectCategoriaEditar.innerHTML = "";
     selectDuracionEditar.innerHTML = "";
+
 
     categorias.forEach((item) => {
         const option = document.createElement("option");
@@ -210,6 +215,7 @@ const agregarProducto = (event) => {
     };
 };
 
+
 if (document.querySelector("#formulario-producto")) {
     document
         .querySelector("#formulario-producto")
@@ -223,6 +229,8 @@ const cargarFormulario = (id) => {
     let formulario = document.querySelector("#formulario-actualizado");
     console.log(formulario);
     Array.from(formulario.elements).forEach((campo) => {
+        console.log(campo.id);
+        
         if (campo.type === "checkbox") {
         campo.checked = arrayProductos[idProducto][campo.id];
         } else if (campo.id === "editCategoria") {
