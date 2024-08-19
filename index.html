@@ -14,7 +14,6 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <script src="https://kit.fontawesome.com/82f0997eec.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
      <link
       rel="stylesheet"
@@ -26,7 +25,7 @@
   <body>
     <header>
       <nav class="navbar sticky-top navbar-expand-lg navbar-danger bg-danger">   
-        <div id="contenedorLogo"><a class="navbar-brand" href="/index.html">
+        <div id="contenedorLogo"><a class="navbar-brand" href="./index.html">
               <img
                 src="./assets/logo.jpeg"
                 alt=""
@@ -48,26 +47,26 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item"></li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/index.html" style="color: white;"
+                <a class="nav-link active" aria-current="page" href="./index.html" style="color: white;"
                   ><i class="fa-solid fa-house" style="color: #74c0fc"></i
                   > Inicio</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white;" 
+                <a class="nav-link" href="#viajes" style="color: white;" 
                   ><i
                     class="fa-solid fa-earth-americas"
                     style="color: #74c0fc"></i> Viajes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/pages/nosotros.html" style="color: white;"
+                <a class="nav-link" href="./pages/nosotros.html" style="color: white;"
                   ><i class="fa-solid fa-link" style="color: #74c0fc"></i> Nosotros</a
                 >
               </li>
-              <li class="nav-item">
+              <li class="nav-item" id="administrador">
                 <a
-                  class="nav-link disabled"
-                  href="/pages/administracion.html"
+                  class="nav-link"
+                  href="./pages/administracion.html"
                   tabindex="-1"
                   aria-disabled="false"
                   style="color: white;"
@@ -91,10 +90,17 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button id="boton-buscador" class="btn btn-info" type="submit">Search</button>
             </form>
+            <a href="./pages/404.html" target="_blank" rel="noopener noreferrer"><button id="boton-buscador" class="btn btn-info" type="submit">Buscar</button>
+            </a>
+            </div>
+            <div id="container-logOut" class="center-sm mt-2 mt-md-0 ms-1 me-2 d-grid d-flex">
+              <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalLogin" id="btnLogin">Iniciar sesión</button>
+              <button class="btn btn-warning ms-2" id="btnLogout">Cerrar sesión</button>
+              </div>
           </div>
-          </div>
+          
+        </div>
       </nav>
     </header>
     <main>
@@ -159,7 +165,7 @@
   
       </div>
     </section>
-      <section class="container-fluid">
+      <section class="container-fluid" id="viajes">
         <section class="container mb-3 px-0">
             <div class="row mt-5">
                 <div class="col my-4 titulo-container">
@@ -229,7 +235,7 @@
     </section>
     </main>
     <footer></footer>
-      <!-- Modal de inicio de sesión -->
+  <!-- Modal de inicio de sesión -->
   <div class="modal fade" id="modalLogin" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content d-flex justify-content-center">
@@ -242,7 +248,7 @@
             <div class="row">
               <div class="col col-md-6">
                 <img src="./assets/logo mrtravelin.png" alt="logo mrtravel" class="logo-mrtravelin" id="logomrtravel">
-              </div>  
+              </div>
               <div class="col col-md-6">
                 <form id="formulariologin">
                  <input type="email" class="form-control" id="email" autocomplete="email" placeholder="Ingresar mail" required>
@@ -250,25 +256,24 @@
                  <div class="d-flex justify-content-center mt-3 mb-3">
                  <button type="submit" class="btn btn-danger" id="btn-sesion">Iniciar sesión</button>
                  </div>
-                </form> 
-               
+                </form>
                 <div class="col d-flex justify-content-center" id="ingresarconG">
                  <p>Ingresar con</p>
-                </div> 
+                </div>
                 <div class="col d-flex justify-content-center">
                  <a href="./pages/404.html">
                   <button type="button" class="btn btn-link" data-bs-dismiss="modal">
-                      <img src="./assets/logoGoogle.png" alt="logoGoogle"> 
+                      <img src="./assets/logoGoogle.png" alt="logoGoogle">
                   </button>
                  </a>
-                </div> 
-              </div>  
-            </div>        
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-evenly" id="modal-edit-footer">
-          <a href="./pages/404.html" class="btn btn-link mt-2 d-flex justify-content-center text-white" id="btn-olvido">Olvidé mi contraseña</a>             
-          <a href="./pages/404.html" class="btn btn-info d-grid text-white" id="btn-registro">Registrarme</a>                  
+          <a href="./pages/404.html" class="btn btn-link mt-2 d-flex justify-content-center text-white" id="btn-olvido">Olvidé mi contraseña</a>
+          <a href="./pages/404.html" class="btn btn-info d-grid text-white" id="btn-registro">Registrarme</a>
         </div>
       </div>
     </div>
@@ -276,7 +281,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/085fe3a535.js"></script>
     <script src="./js/global.js"></script>
-    <script src="./js/footer.js"></script>
+    <script src="./js/login.js"></script>
     <script src="./js/principal.js"></script>
+    <script src="./js/footer.js"></script>
   </body>
 </html>

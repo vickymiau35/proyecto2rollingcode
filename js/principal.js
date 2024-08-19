@@ -22,7 +22,7 @@ function crearTarjeta(producto) {
                             <a href="#" onclick="irViaje(${producto.id})" class="text-decoration-none fs-6 mx-2 my-2">Ver más...</a>
                         </div>
                         <div class="contenedor-boton-tarjeta">
-                            <button class="favorite" onclick="toggleFavorite(${producto.id})">
+                            <button class="favorite" onclick="toggleFavorito(${producto.id})">
                                 <i class="fa-regular fa-heart ${addedClass}" id="favorito-regular"></i>
                                 <i class="fa-solid fa-heart ${addedClass}" id="agregado-favorito"></i>
                             </button>
