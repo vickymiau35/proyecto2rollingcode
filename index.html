@@ -228,7 +228,51 @@
         </section>
     </section>
     </main>
-    <footer></footer>    
+    <footer></footer>
+      <!-- Modal de inicio de sesión -->
+  <div class="modal fade" id="modalLogin" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content d-flex justify-content-center">
+        <div class="modal-header" id="modal-edit-header">
+          <h5 class="modal-title fs-5 text-center text-white" id="exampleModalLabel">Iniciar sesión</h5>
+          <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col col-md-6">
+                <img src="./assets/logo mrtravelin.png" alt="logo mrtravel" class="logo-mrtravelin" id="logomrtravel">
+              </div>  
+              <div class="col col-md-6">
+                <form id="formulariologin">
+                 <input type="email" class="form-control" id="email" autocomplete="email" placeholder="Ingresar mail" required>
+                 <input type="password" class="form-control mt-2" id="password" placeholder="Ingresar contraseña" required>
+                 <div class="d-flex justify-content-center mt-3 mb-3">
+                 <button type="submit" class="btn btn-danger" id="btn-sesion">Iniciar sesión</button>
+                 </div>
+                </form> 
+               
+                <div class="col d-flex justify-content-center" id="ingresarconG">
+                 <p>Ingresar con</p>
+                </div> 
+                <div class="col d-flex justify-content-center">
+                 <a href="./pages/404.html">
+                  <button type="button" class="btn btn-link" data-bs-dismiss="modal">
+                      <img src="./assets/logoGoogle.png" alt="logoGoogle"> 
+                  </button>
+                 </a>
+                </div> 
+              </div>  
+            </div>        
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-evenly" id="modal-edit-footer">
+          <a href="./pages/404.html" class="btn btn-link mt-2 d-flex justify-content-center text-white" id="btn-olvido">Olvidé mi contraseña</a>             
+          <a href="./pages/404.html" class="btn btn-info d-grid text-white" id="btn-registro">Registrarme</a>                  
+        </div>
+      </div>
+    </div>
+  </div>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/085fe3a535.js"></script>
     <script src="./js/global.js"></script>
