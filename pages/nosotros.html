@@ -10,60 +10,133 @@
     <title>Acerca de nosotros</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
 
-  <body class="body_princ ">
-    <h1 class="nos " > -- ¿Quiénes somos? --</h1>
-    <p class="texto">Somos una empresa con 17 años de trayectoria. Tenemos el objetivo de volcar en cada cliente, la política y la cultura de nuestra empresa, que surge de lo aprendido en todos esos años.
-
-        Lo mejor del viaje es el valor agregado que Mr.travel le brinda a cada pasajero cuando es recibido por el equipo de recursos humanos. Así es como logramos un excelente servicio.
-        
-        Hemos alcanzado un posicionamiento destacado a nivel provincial y nacional aplicando la filosofía y cultura que caracteriza nuestra forma de brindar atención y asesoramiento a nuestros clientes: alta calidad de servicios y atención personalizada.
-        
-        Luego de un gran recorrido por el turismo nacional, internacional, receptivo y estudiantil, ofrecemos una organización interna de gran envergadura, adaptando itinerarios y servicios turísticos a la altura de cada uno de nuestros clientes, de acuerdo a las necesidades y características solicitadas, ofreciendo desde nuestro departamento la logística y operativa con la mayor eficiencia y rapidez para concretar cada pedido.
-        
-        En cada atención ponemos en práctica las herramientas necesarias para lograr satisfacción en los pasajeros, logrando de esta manera nuestro objetivo: valorar la inversión realizada y disfrutar del servicio recibido convirtiéndolo en lo mejor del viaje.</p>
-    <main class="principal d-flex flex-column flex-md-row">
-  
-      <div class="container">
-          <div class="gallery ">
-            <div class="member" id="box1">
-              <img src="../assets/vicky.jpeg" class="img_perfil"alt="Miembro 1">
-              <p class="letra">--Victoria Trejo--</p>
-              <p>Programadora</p>
-            </div>
-            <div class="member" id="box2">
-              <img src="../assets/luciana.jpeg"class="img_perfil" alt="Miembro 2">
-              <p class="letra">--Luciana Barrionuevo--</p>
-              <p>Programadora</p>
-            </div>
-            <div class="member" id="box1">
-              <img src="../assets/cecilia.jpeg"class="img_perfil" alt="Miembro 3">
-              <p class="letra">--Cecilia Palavecino--</p>
-              <p>Programadora</p>
-            </div>
-           <div class="member" id="box2">
-            <img src="../assets/daniel.jpeg"class="img_perfil" alt="Miembro 3">
-              <p class="letra">--Daniel Ledesma--</p>
-              <p>Programador</p>
-            </div>
-           <div class="member" id="box1">
-              <img src="../assets/juan.jpeg"class="img_perfil" alt="Miembro 3">
-              <p class="letra">--Juan Loretto--</p>
-              <p>Programador</p>
-            </div>
+  <body >
+    <header>
+      <nav class="navbar sticky-top navbar-expand-lg navbar-danger bg-danger">   
+        <div id="contenedorLogo"><a class="navbar-brand" href="./index.html">
+              <img
+                src="../assets/logo.jpeg"
+                alt=""
+                class="w-100"
+                id="logoNavbar"
+            /></a></div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarTogglerDemo02"
+              aria-controls="navbarTogglerDemo02"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+            <i class="fa-solid fa-bars fa-xl" style="color: #74C0FC;" uotline="none"></i>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"></li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html" style="color: white;"
+                  ><i class="fa-solid fa-house" style="color: #74c0fc"></i
+                  > Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="color: white;" 
+                  ><i
+                    class="fa-solid fa-earth-americas"
+                    style="color: #74c0fc"></i> Viajes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/nosotros.html" style="color: white;"
+                  ><i class="fa-solid fa-link" style="color: #74c0fc"></i> Nosotros</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link disabled"
+                  href="/pages/administracion.html"
+                  tabindex="-1"
+                  aria-disabled="false"
+                  style="color: white;"
+                  ><i class="fa-solid fa-gear"></i> Administracion</a
+                >
+              </li>
+              <li id="boton-header-favorito"  class="nav-item d-flex align-items-center">
+                <a class="nav-link d-flex align-items-center" href="./pages/favoritos.html" style="color: white;">
+                  <i class="fa-solid fa-heart fs-5 me-2"></i>
+                  <span class="contador-favorito fs-7">0</span>
+                  <span class="ms-1" id="span-favoritos">Favoritos</span>
+                </a>
+              </li>
+            </ul>
+            <div id="contenedorFormulario">
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                id="input-buscador"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button id="boton-buscador" class="btn btn-info" type="submit">Buscar</button>
+            </form>
+    </header>
+    <main class="principal d-flex flex-column flex-md-row w-100">
+      <section class="body_princ ">
+        <h1 class="nos "> -- ¿Quiénes somos? --</h1>
+        <p class="texto">Somos una empresa con 17 años de trayectoria. Tenemos el objetivo de volcar en cada cliente, la política y la cultura de nuestra empresa, que surge de lo aprendido en todos esos años.
+    
+            Lo mejor del viaje es el valor agregado que Mr.travel le brinda a cada pasajero cuando es recibido por el equipo de recursos humanos. Así es como logramos un excelente servicio.
+            
+            Hemos alcanzado un posicionamiento destacado a nivel provincial y nacional aplicando la filosofía y cultura que caracteriza nuestra forma de brindar atención y asesoramiento a nuestros clientes: alta calidad de servicios y atención personalizada.
+            
+            Luego de un gran recorrido por el turismo nacional, internacional, receptivo y estudiantil, ofrecemos una organización interna de gran envergadura, adaptando itinerarios y servicios turísticos a la altura de cada uno de nuestros clientes, de acuerdo a las necesidades y características solicitadas, ofreciendo desde nuestro departamento la logística y operativa con la mayor eficiencia y rapidez para concretar cada pedido.
+            
+            En cada atención ponemos en práctica las herramientas necesarias para lograr satisfacción en los pasajeros, logrando de esta manera nuestro objetivo: valorar la inversión realizada y disfrutar del servicio recibido convirtiéndolo en lo mejor del viaje.</p>
+            <div class="container">
+              <div class="gallery ">
+                <div class="member" id="box1">
+                  <img src="../assets/vicky.jpeg" class="img_perfil"alt="Miembro 1">
+                  <p class="letra">--Victoria Trejo--</p>
+                  <p>Programadora</p>
+                </div>
+                <div class="member" id="box2">
+                  <img src="../assets/luciana.jpeg"class="img_perfil" alt="Miembro 2">
+                  <p class="letra">--Luciana Barrionuevo--</p>
+                  <p>Programadora</p>
+                </div>
+                <div class="member" id="box1">
+                  <img src="../assets/cecilia.jpeg"class="img_perfil" alt="Miembro 3">
+                  <p class="letra">--Cecilia Palavecino--</p>
+                  <p>Programadora</p>
+                </div>
+               <div class="member" id="box2">
+                <img src="../assets/daniel.jpeg"class="img_perfil" alt="Miembro 3">
+                  <p class="letra">--Daniel Ledesma--</p>
+                  <p>Programador</p>
+                </div>
+               <div class="member" id="box1">
+                  <img src="../assets/juan.jpeg"class="img_perfil" alt="Miembro 3">
+                  <p class="letra">--Juan Loretto--</p>
+                  <p>Programador</p>
+                </div>
+              </div>
           </div>
-        </div>
-</div>
-
-
+      </section>
+    </main>
+    <footer></footer>
  
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
     <script src="../js/nosotros.js"></script>
-
-
+    <script src="../js/footer.js"></script>
   </body>
 </html>
