@@ -1,3 +1,4 @@
+
 function crearTarjeta(producto) {
     const isFavorite = favoritos.some(fav => fav.id === producto.id);
     const addedClass = isFavorite ? 'active' : '';
@@ -74,3 +75,4 @@ window.addEventListener('storage', (event) => {
         llenarSeccionesTarjetas();
     }
 });
+
