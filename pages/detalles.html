@@ -9,19 +9,85 @@
     <link rel="shortcut icon" href="/assets/..." type="image/png" />
     <title>Más detalles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
 
   <body>
+    <header>      
+    </header>   
+<main>
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+          <div id="productImage" class="w-100">
+            <img src="" class="d-block w-100 img-fluid rounded-top" alt="Producto" id="productImageDisplay">
+          </div>
+        </div>       
+        <div class="col-md-6 d-flex flex-column align-items">
+          <hr class="card-separator">
+          <h1 id="nombre"></h1>   
+          <span>Categoria</span>
+          <small id="categoria"></small>      
+          <div id="contlist">
 
-<header></header>
-<main></main>
-<footer></footer>    
+          </div>
+          <h4 id="precio" class="mt-2"></h4> 
+          <hr class="card-separator">
+            <button class="btn btn-success rounded mt-auto" id="contacto-asesor">
+              Comunicarse con asesor
+            </button>
+            
+       
+        </div>
+    </div>
+</div>
+        <div class="col-md-6 d-flex flex-column align-items">
+          <h1 id="nombre"></h1>
+          <span id="categoria"></span>
+          <h4 id="precio" class="mt-2"></h4> 
+         
+      </div>
+     
+    <div class="row container">
+        <div class="container w-100">
+            <h3>Descripción del Producto</h3>
+            <p id="descripcion"></p>
+            <div class="container">
+              <h4 class="text-center">Productos relacionados  </h4>
+
+            </div>
+            <div class="carousel-container">
+              <div class="custom-scroll">
+                <div id="div-relacionados" class="carousel-wrapper">
+                  <!-- Tarjetas se inyectarán aquí -->
+                </div>
+                <!-- Botones personalizados para desplazamiento -->
+                <button id="btn-relacionados" class="carousel-control prev" onclick="scrollCarousel('div-relacionados',-1)">&#10094;</button>
+                <button id="btn-relacionados2" class="carousel-control next" onclick="scrollCarousel('div-relacionados',1)">&#10095;</button>
+                </div>
+              </div>
+            </div>
+            <h3 id="opiniones">Opiniones de Clientes</h3>
+            <div class="d-flex flex-column align-items-start" container>
+    <input class="mb-3 mt-3 rounded" type="text" id="nombreUsuario" placeholder="Nombre" >
+    <textarea class="col-md-6 mb-3 rounded w-75" id="comentarioUsuario" placeholder="Escribe tu comentario aquí"></textarea>
+    <button id="btn-comentario" class="btn rounded" onclick="agregarComentario()">Agregar Comentario</button>
+</div>
+<div id="contenedorComentarios"> 
+</div>
+
+</main>
+
+<footer>
+</footer>    
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <script src="/js/detalles.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/js/admin.js"></script>
+<script src="/js/principal.js"></script>
+<script src="/js/detalles.js"></script>
+<script src="/js/footer.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
   </body>
 </html>
