@@ -31,7 +31,6 @@ function inicializarModal() {
 inicializarModal();
 
 let idProducto = null;
-let arrayProductos = JSON.parse(localStorage.getItem("productos"));
 
 //variables para paginacion
 let limite = 5;
@@ -229,8 +228,6 @@ const cargarFormulario = (id) => {
     let formulario = document.querySelector("#formulario-actualizado");
     console.log(formulario);
     Array.from(formulario.elements).forEach((campo) => {
-        console.log(campo.id);
-        
         if (campo.type === "checkbox") {
         campo.checked = arrayProductos[idProducto][campo.id];
         } else if (campo.id === "editCategoria") {
