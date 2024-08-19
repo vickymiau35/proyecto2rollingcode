@@ -1,3 +1,57 @@
+/*error 404*/
+.body_error {
+  font-size: 18px;
+}
+
+
+.error_404{
+  width: 900px;
+  height: 900px;
+}
+
+.error_main {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  padding:10px;
+  margin: 100px;
+}
+.btn_error{
+  position: absolute;
+  top: 30px; 
+  left: 30px; 
+  padding: 20px 30px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  
+  cursor: pointer;
+  width: 150px;
+  height: 75px;
+  font-size: 35px;
+  border-radius: 40px;
+}
+.btn_error:hover {
+  background-color:red;
+}
+
+@media (max-width: 768px) {
+ .error_404{
+    max-width: 100%;
+    height: auto;
+  }
+
+} 
+
+@media (max-width: 480px) {
+  .error_404{
+    max-width: 100%;
+    height:auto;
+  }
+}
+
+
 
 /* NOSOTROS*/
 
@@ -473,5 +527,4 @@ font-size: 18px;
 }
 
 }
-
 
