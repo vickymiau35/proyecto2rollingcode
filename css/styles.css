@@ -1,21 +1,57 @@
+
 /* NOSOTROS*/
 
 .body_princ {
-  width: 100%;
+   width: 100%;
   height: auto;
   object-fit: cover;
 }
+
+
+.carousel-item {
+  position: relative;
+  height: 100%;
+}
+
+.imgslider {
+  filter: contrast(90%);
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+}
+
+.text_style{
+
+}
+
+.text_style {
+  animation: slideIn 3s ease-in-out infinite;
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* responsive*/
+.carousel-item img {
+
 
 .nos {
   max-height: 500px;
   overflow: hidden;
 }
 .text {
+
+.carousel {
   max-height: 500px;
   overflow: hidden;
 }
 
 @media (max-width: 768px) {
+
   .body_princ {
     font-size: 14px;
   }
@@ -36,6 +72,16 @@
 }
 
 h1 {
+
+  .carousel {
+      max-height: 300px; /
+  }
+}
+
+/* NOSOTROS*/
+
+h1{
+
   color: black;
   text-decoration: none;
   padding: 10px;
@@ -45,6 +91,7 @@ h1 {
 
 .letra {
   font-weight: bold;
+
 }
 .container {
   max-width: 1200px;
@@ -55,13 +102,15 @@ h1 {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content:center;
 }
 .member {
   text-align: center;
   margin: 10px;
+
 }
-.img_perfil {
+.img_perfil{
+
   width: 150px;
   height: 150px;
   border-radius: 100%;
@@ -72,6 +121,7 @@ body {
   position: relative;
   min-height: 100vh;
 }
+
 
 .content {
   position: relative;
@@ -127,3 +177,301 @@ body {
   display: inline-block;
   box-shadow: 4px 4px 8px rgba(5, 5, 5, 5.5);
 }
+
+.body_princ::before {
+content: "";
+position:absolute;
+bottom: 0;
+width: 100%;
+height: 100%;
+background: url(./logo.jpeg) no-repeat center center;
+background-size:cover; 
+opacity: 0.2; 
+pointer-events: none; 
+z-index: 0; 
+}
+.nos{
+text-align: center;
+}
+.member {
+
+
+
+#box1:hover {
+color: #007bff;
+font-family: Arial, Helvetica, sans-serif;
+font-size: x-large;
+}
+
+
+/*diseño para el carrousel de cards*/
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 20px;
+}
+.custom-scroll {
+  display: flex;
+  overflow-x: auto; 
+  overflow-y: hidden;
+  gap: 1rem; 
+  scroll-behavior: smooth; 
+  justify-content: center;
+}
+.carousel-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 1rem; 
+  padding: 1rem;
+  scrollbar-width: none;
+}
+
+/*diseño para las cards*/
+.titulo-container {
+  position: relative;
+  padding: 1rem 0; /* Ajusta el padding si es necesario */
+}
+
+.titulo-container::before,
+.titulo-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px; /* Altura del borde */
+  background: linear-gradient(to right, #cdcbee, #04b6ec);
+}
+
+.titulo-container::before {
+  top: 0; 
+}
+
+.titulo-container::after {
+  bottom: 0;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(18, 177, 182, 0);
+  color: rgba(5, 13, 80, 0.986);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+  border-radius: 0 30% 30% 0;
+  font-size: 1.5rem;
+  opacity: 0.7; 
+  transition: opacity 0.3s ease;
+}
+.carousel-control:hover {
+  opacity: 1; 
+}
+.carousel-control.prev {
+  left: 0;
+}
+
+.carousel-control.next {
+  right: 0;
+}
+
+.card {
+  flex: 0 0 auto;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; 
+  scroll-snap-align: center;
+  border-radius: 15px;
+  width: 300px;
+  min-height: 400px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card:hover {
+  box-shadow: 0 4px 10px 0 rgba(154, 185, 182, 0.6);
+  transform: scale(1.05);
+}
+
+.card-separator {
+  border: 0;
+  border-top: 2px solid #000000; 
+  margin: 5px 0;
+}
+
+.card-img-container {
+  position: relative;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0; 
+  overflow: hidden; 
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-text {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.card-body .precio {
+  font-weight: bold;
+  font-size: 1.2rem; 
+  color: #333; 
+}
+.badge-container {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  background-color: rgb(255, 255, 255);
+  color:#179ea4;
+  padding: 5px 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 1em;
+}
+
+.badge-container i {
+  margin-right: 5px;
+}
+.contenedor-boton-tarjeta {
+display: flex;
+gap: 20px;
+}
+
+.contenedor-boton-tarjeta button {
+border: none;
+background: none;
+outline: none;
+cursor: pointer;
+box-shadow: 0px 0px 15px #00000025;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+font-size: 18px;
+}
+
+#agregado-favorito {
+  color: red;
+  display: none;
+}
+
+#favorito-regular.active {
+  display: none;
+}
+
+#agregado-favorito.active {
+  display: block;
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .card {
+      height: auto;
+      width: 250px;
+  }
+  .card-img-top{
+      height: 150px;
+  }
+  .card-body{
+      padding: 10px;
+  }
+}
+@media (max-width: 576px) {
+  .card {
+      height: auto;
+      width: 280px;
+      max-width: 430px;
+      margin: 0 auto;
+  }
+
+  .card-img-top {
+      height: 90px; 
+  }
+
+  .card-body {
+      padding: 10px;
+  }
+
+  .card-title {
+      font-size: 1rem; 
+  }
+
+  .card-text {
+      font-size: 0.9rem;
+  }
+
+  .precio {
+      font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .card {
+      width: 220px;
+      max-width: 300px; 
+  }
+
+  .card-img-top {
+      height: 130px !important;
+  }
+
+  .card-title {
+      font-size: 1.2rem !important;
+  }
+
+  .card-text {
+      margin: 5px;
+      font-size: 0.85rem; 
+  }
+
+  .precio {
+      font-size: 1rem !important;
+  }
+/* imagen de la pagina de detalle */
+#productImage {
+  height: 50vw; 
+  max-height: 400px; 
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#productImageDisplay {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media(max-width: 768px){
+  #btn-relacionados{
+    display: none;
+  }
+  #btn-relacionados2{
+    display: none;
+  }
+}
+#btn-comentario{
+  background-color: #f36c6c;
+  border-color:#000
+}
+#btn-comentario:hover{
+  background-color: #ec3232;
+  transform: scale(1.02);
+}
+
+}
+
+
